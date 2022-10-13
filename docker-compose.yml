@@ -10,3 +10,9 @@ services:
       POSTGRES_DB: cap
     ports:
       - 5432:5432
+    volumes:
+      - "postgres_volume:/var/lib/postgresql/data"
+
+volumes:
+  postgres_volume:
+
