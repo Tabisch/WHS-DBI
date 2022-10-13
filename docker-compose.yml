@@ -1,18 +1,32 @@
 version: '3.8'
 
 services:
-  db:
+  postgres_db:
     image: postgres:14.5
     restart: unless-stopped
     environment:
       POSTGRES_USER: dbadmin
-      POSTGRES_PASSWORD: <password>
+      POSTGRES_PASSWORD: dbadmin
       POSTGRES_DB: cap
     ports:
       - 5432:5432
     volumes:
       - "postgres_volume:/var/lib/postgresql/data"
 
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres_db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 80:80
+    #  - 5051:443
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    restart: unless-stopped
+
 volumes:
   postgres_volume:
-
+  pgadmin:
