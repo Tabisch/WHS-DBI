@@ -1,4 +1,14 @@
+CREATE ROLE dbi WITH
+  NOLOGIN
+  NOSUPERUSER
+  INHERIT
+  NOCREATEDB
+  NOCREATEROLE
+  NOREPLICATION
+  ENCRYPTED PASSWORD 'SCRAM-SHA-256$4096:Vcvo3GZgX9a0M/lg/h4Iww==$puFi5qmYk1mqoiFyyIs/xGsmOD0ZE5AabxI1nnkuf8A=:7R5OJ9/Gfz5ydyPl5w/cywMtPCrb3TZBNXRTQ+mqF5Y=';
 
+CREATE SCHEMA IF NOT EXISTS dbi
+    AUTHORIZATION dbi;
 -- Initialisierung der CAP-Beispieldatenbank
 -- Schemadefinition und Auffuellen mit Beispieltupel
 
