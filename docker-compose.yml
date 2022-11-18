@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: dbi
       POSTGRES_PASSWORD: dbi_pass
-      POSTGRES_DB: cap
+      POSTGRES_DB: benchmark
     ports:
       - 5432:5432
     volumes:
